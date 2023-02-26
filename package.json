@@ -1,0 +1,9 @@
+{
+  "name": "js-text-to-speech",
+  "version": "1.0.0",
+  "description": "A simple HTML, CSS, and JavaScript application",
+  "main": "main.js",
+  "repository": "https://github.com/MAbdurahman/js-text-to-speech.git",
+  "author": "Mahdi Abdurrahman <mdbdrrhm@gmail.com>",
+  "license": "MIT"
+}
