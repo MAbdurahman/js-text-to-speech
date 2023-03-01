@@ -9,15 +9,47 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- normalize styles-->
     <link rel="stylesheet" href="./css/normalize.css">
+    <!-- rangeslider styles-->
+    <link rel="stylesheet" href="./css/rangeslider.css">
     <!-- main styles-->
     <link rel="stylesheet" href="./css/main.css">
-    <title>js-text-to-speech</title>
+    <title>Text-To-Speech App</title>
 </head>
 <body>
+<!-- begin of preloader -->
+<div id="preloader">
+    <img src="./gifs/preloader.gif" alt="hardware-drive image" id="preloader-gif"/>
+</div>
+<!-- begin of translator-->
+<form id="form" class="wrapper" >
+
+    <div class="title">
+        <h2>Text-To-Speech App</h2>
+    </div>
+
+    <label for="message">Message
+        <input type="text" name="message" id="message" placeholder="Enter message">
+    </label>
+
+    <label for="select-voice">Voice
+        <select id="select-voice" name="select-voice" disabled></select>
+    </label>
+
+    <input id="submit-button" class="button" type="submit" value="speak">
+
+    <hr class="horizontal-line" />
+
+
+
+
+</form>
+
 
 
 <!-- jQuery scripts-->
 <script src="./js/jquery-3.6.1.min.js"></script>
+<!-- range-slider scripts-->
+<script src="./js/rangeslider.js"></script>
 <!-- sweatalert scripts-->
 <script src="./js/sweetalert.min.js"></script>
 <!-- main scripts-->
