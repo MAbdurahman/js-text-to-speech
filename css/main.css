@@ -1,3 +1,256 @@
+/*@import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans&family=DM+Serif+Display&display=swap');*/
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono&family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap");
+/* ==========================================
+              Website Resets
+============================================= */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
 
+*::-moz-focus-inner {
+  border: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+/*=============================================
+         root, html,  and body styles
+================================================*/
+:root {
+  --clr-primary-100: hsla(210, 71%, 96%, 100%);
+  --clr-primary-200: hsla(210, 71%, 86%, 100%);
+  --clr-primary-300: hsla(210, 59%, 70%, 100%);
+  --clr-primary-400: hsla(210, 68%, 63%, 100%);
+  --clr-primary-500: hsla(210, 67%, 54%, 100%);
+  --clr-primary-600: hsla(210, 67%, 46%, 100%);
+  --clr-primary-700: hsla(210, 68%, 37%, 100%);
+  --clr-primary-800: hsla(210, 67%, 29%, 100%);
+  --clr-neutral-100: hsla(0, 0%, 98%, 100%);
+  --clr-neutral-200: hsla(0, 0%, 94%, 100%);
+  --clr-neutral-300: hsla(0, 0%, 85%, 100%);
+  --clr-neutral-400: hsla(0, 0%, 75%, 100%);
+  --clr-neutral-500: hsla(0, 0%, 60%, 100%);
+  --clr-neutral-600: hsla(0, 0%, 38%, 100%);
+  --clr-neutral-700: hsla(0, 0%, 19%, 100%);
+  --clr-neutral-800: hsla(0, 0%, 7%, 100%);
+  --clr-augmented-100: hsla(210, 15%, 58%, 100%);
+  --clr-augmented-200: hsla(210, 11%, 50%, 100%);
+  --clr-augmented-300: hsla(210, 11%, 36%, 100%);
+  --clr-augmented-400: hsla(210, 25%, 19%, 100%);
+  --ff-font-body: "DM Sans", sans-serif;
+  --ff-font-head: "DM Serif Display", serif;
+  --ff-font-mono: "DM Mono", monospace;
+  --fw-font-weight-400: 400;
+  --fw-font-weight-500: 500;
+  --ls-letter-spacing: 1px;
+  --br-border-radius: 5px;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
+  background-image: radial-gradient(circle, var(--clr-primary-700) 28%, var(--clr-primary-800) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  color: var(--clr-neutral-200);
+  color: var(--clr-augmented-400);
+  font-family: var(--ff-font-body);
+  font-weight: var(--fw-font-weight-400);
+  font-size: 1rem;
+  letter-spacing: var(--ls-letter-spacing);
+  transition: filter 0.5s;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 3rem 0 1.38rem;
+  font-family: var(--ff-font-head);
+  font-weight: var(--fw-font-weight-400);
+  line-height: 1;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.052rem;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+small, .text_small {
+  font-size: 0.8rem;
+}
+
+input {
+  font-family: var(--ff-font-body);
+}
+
+*::placeholder,
+input::placeholder {
+  color: var(--clr-augmented-200);
+}
+
+/* =========================================
+              Preloader
+============================================ */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #262626;
+  background: var(--clr-augmented-400);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+#preloader-gif {
+  width: 33.33%;
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  #preloader-gif {
+    width: 50%;
+  }
+}
+/*=============================================
+          wrapper
+================================================*/
+.wrapper {
+  max-width: 500px;
+  padding: 20px;
+  border-radius: var(--br-border-radius);
+  background: rgba(255, 255, 255, 0.4);
+  background: hsla(0, 0%, 94%, 0.7);
+}
+
+/*=============================================
+          title
+================================================*/
+.title {
+  color: var(--clr-augmented-400);
+  text-align: center;
+}
+
+/*=============================================
+     input, label, select
+================================================*/
+input, label, select {
+  display: block;
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 0.5em;
+}
+
+label {
+  margin-bottom: 1em;
+  color: var(--clr-augmented-300);
+  font-weight: var(--fw-font-weight-500);
+}
+
+input, select {
+  color: var(--clr-augmented-400);
+  font-weight: var(--fw-font-weight-500);
+}
+
+/* =============================================
+               button
+   ============================================= */
+.button {
+  max-width: 96%;
+  margin: 0 auto;
+  margin-bottom: 1.5em;
+  padding: 0.5em 1em;
+  border: 3px solid var(--clr-primary-800);
+  border-radius: var(--br-border-radius);
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-primary-800);
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.333s ease-in-out;
+}
+
+.button:hover {
+  color: var(--clr-neutral-100);
+  background: #626262 radial-gradient(circle, transparent 1%, #626262 1%) center/15000%;
+  background: var(--clr-primary-700) radial-gradient(circle, transparent 1%, var(--clr-primary-700) 1%) center/15000%;
+  border-color: var(--clr-primary-700);
+}
+
+.button:active {
+  background-color: var(--clr-primary-700);
+  background-size: 100%;
+  transition: all 0.333s ease-in-out;
+}
+
+@media (max-width: 576px) {
+  .button {
+    font-size: 0.9rem;
+  }
+}
+/*=============================================
+            horizontal line
+================================================*/
+.horizontal-line {
+  width: 80%;
+  height: 3px;
+  background-color: var(--clr-primary-700);
+  margin: 0 auto;
+  margin-bottom: 1.75em;
+}
+
+/*=============================================
+      input[type=range]
+================================================*/
+/*=============================================
+
+================================================*/
 
 /*# sourceMappingURL=main.css.map */
