@@ -50,6 +50,7 @@ $(window).on('load', function () {
       }
       message.text = voice_message.value;
       speechSynthesis.speak(message);
+      voice_message.focus();
       return false;
     };
     
