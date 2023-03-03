@@ -60,11 +60,11 @@ $(window).on('load', function () {
     vpitch.disabled = false;
     vrate.disabled = false;*/
     voice_message.disabled = false;
-    voice_message.focus();
     submit_button.disabled = false;
+    voice_message.focus();
     
     clear_button.addEventListener('click', function(e) {
-      console.log('clear_button');
+      
       if (voice_message.value === '') {
         swal('Invalid Entry', 'Message is already empty!', 'error');
       }
