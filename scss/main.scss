@@ -168,6 +168,16 @@ input::placeholder {
 }
 
 /*=============================================
+          wrapper-buttons
+================================================*/
+.wrapper-buttons {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/*=============================================
           title
 ================================================*/
 .title {
@@ -201,6 +211,8 @@ input, select {
    ============================================= */
 .button {
   max-width: 96%;
+  max-width: 50%;
+  width: 45%;
   margin: 0 auto;
   margin-bottom: 1.5em;
   padding: .5em 1em;
@@ -218,7 +230,6 @@ input, select {
 
 .button:hover {
   color: var(--clr-neutral-100);
-  background: #626262 radial-gradient(circle, transparent 1%, #626262 1%) center/15000%;
   background: var(--clr-primary-700) radial-gradient(circle, transparent 1%, var(--clr-primary-700) 1%) center/15000%;
   border-color: var(--clr-primary-700);
 }
@@ -226,6 +237,44 @@ input, select {
 .button:active {
   background-color: var(--clr-primary-700);
   background-size: 100%;
+  transition: all 0.333s ease-in-out;
+}
+
+.button-clear {
+  background-color: var(--clr-primary-700);
+  border: 3px solid var(--clr-primary-700);
+  transition: all 0.333s ease-in-out;
+}
+
+.button-clear:hover {
+  color: var(--clr-neutral-100);
+  background: var(--clr-primary-800) radial-gradient(circle, transparent 1%, var(--clr-primary-800) 1%) center/15000%;
+  border-color: var(--clr-primary-800);
+}
+
+.button-clear:active {
+  background-color: var(--clr-primary-800);
+  background-size: 100%;
+  transition: all 0.333s ease-in-out;
+}
+
+
+.swal-button {
+  color: var(--clr-neutral-200);
+  background: var(--clr-primary-800) radial-gradient(circle, transparent 1%, var(--clr-primary-800) 1%) center/15000%;
+  border-color: var(--clr-primary-800);
+}
+
+.swal-button:not([disabled]):hover {
+  color: var(--clr-neutral-100);
+  background: var(--clr-primary-700) radial-gradient(circle, transparent 1%, var(--clr-primary-700) 1%) center/15000%;
+  border-color: var(--clr-primary-700);
+}
+
+.swal-button--cancel {
+  color: var(--clr-neutral-200);
+  background-color: var(--clr-primary-600);
+  border: 3px solid var(--clr-primary-600);
   transition: all 0.333s ease-in-out;
 }
 
@@ -247,8 +296,68 @@ input, select {
   margin-bottom: 1.75em;
 }
 /*=============================================
-      input[type=range]
+      select
 ================================================*/
+/*the container must be positioned relative:*/
+label .custom-select {
+  position: relative;
+  font-family: 'Roboto Mono', monospace;
+}
+
+label .custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+label .select-selected {
+  background-color: #d1d1d1;
+}
+
+/*style the arrow inside the select element:*/
+label .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+label .select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+label .select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+label .select-items {
+  position: absolute;
+  background-color: #d1d1d1;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+label .select-hide {
+  display: none;
+}
+
+label .select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 
 

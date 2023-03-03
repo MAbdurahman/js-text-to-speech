@@ -21,7 +21,7 @@
     <img src="./gifs/preloader.gif" alt="hardware-drive image" id="preloader-gif"/>
 </div>
 <!-- begin of translator-->
-<form id="form" class="wrapper" >
+<form id="form" class="wrapper">
 
     <div class="title">
         <h2>Text-To-Speech App</h2>
@@ -32,22 +32,36 @@
     </label>
 
     <label for="select-voice">Voice
-        <select id="select-voice" name="select-voice" disabled></select>
+        <!--<div class="custom-select" style="width: 340px">-->
+        <select id="select-voice" name="select-voice" class="custom-select">
+            <!--<option value="0">Select a voice:</option>
+            <option value="0">Select a voice:</option>
+            <option value="0">Select a voice:</option>
+            <option value="0">Select a voice:</option>
+            <option value="0">Select a voice:</option>
+            <option value="0">Select a voice:</option>-->
+        </select>
+        <!--        </div>-->
     </label>
 
-    <input id="submit-button" class="button" type="submit" value="speak">
+    <div class="wrapper-buttons">
+        <!--<input id="submit-button" class="button" type="submit" value="speak">
+        <input id="clear-button" class="button" type="reset" value="clear">-->
+        <button type="submit" id="submit-button" class="button">speak</button>
+        <button type="reset" id="clear-button" class="button button-clear">clear</button>
 
-    <hr class="horizontal-line" />
+    </div>
 
-
+    <hr class="horizontal-line"/>
 
 
 </form>
 
 
-
 <!-- jQuery scripts-->
 <script src="./js/jquery-3.6.1.min.js"></script>
+<!-- fontawesome scripts-->
+<script src="js/all.min.js"></script>
 <!-- range-slider scripts-->
 <script src="./js/rangeslider.js"></script>
 <!-- sweatalert scripts-->

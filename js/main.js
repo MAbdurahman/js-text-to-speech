@@ -8,10 +8,13 @@ $(window).on('load', function () {
 });
 
 
+
+
 /* ============================================
             js-text-to-speak
 ===============================================*/
 $(window).on('load', function () {
+  
   // text-to-speech is supported
   if ('speechSynthesis' in window) {
     // get the elements
@@ -21,8 +24,10 @@ $(window).on('load', function () {
       vpitch = document.getElementById('demo-pitch'),
       vrate = document.getElementById('demo-rate'),*/
       voice_message = document.getElementById('message'),
-      submit_button = document.getElementById('submit-button');
-    
+      submit_button = document.getElementById('submit-button'),
+      clear_button = document.getElementById('clear-button');
+      
+
     // populate available voices
     const voices = () => {
       speechSynthesis.getVoices().forEach((voice, i) => {
@@ -55,16 +60,27 @@ $(window).on('load', function () {
     vpitch.disabled = false;
     vrate.disabled = false;*/
     voice_message.disabled = false;
+    voice_message.focus();
     submit_button.disabled = false;
+    
+    clear_button.addEventListener('click', function(e) {
+      console.log('clear_button');
+      if (voice_message.value === '') {
+        swal('Invalid Entry', 'Message is already empty!', 'error');
+      }
+      voice_message.innerHTML = '';
+      voice_message.focus();
+
+    });
+
   }
-  
   // text-to-speech is not available in broswer
   else {
     /*alert('Text-to-speech is not supported on your browser!');*/
     swal('Not Supported In Your Browser!','Text-to-speech is not supported.', 'error');
-    return;
   }
 });
+
 
 
 
