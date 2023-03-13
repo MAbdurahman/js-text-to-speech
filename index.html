@@ -9,8 +9,6 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- normalize styles-->
     <link rel="stylesheet" href="./css/normalize.css">
-    <!-- rangeslider styles-->
-    <link rel="stylesheet" href="./css/rangeslider.css">
     <!-- main styles-->
     <link rel="stylesheet" href="./css/main.css">
     <title>Text-To-Speech App</title>
@@ -24,7 +22,7 @@
 <form id="form" class="wrapper">
 
     <div class="title">
-        <h2>Text-To-Speech App</h2>
+        <h3>Text-To-Speech App</h3>
     </div>
 
     <label for="message">Message
@@ -32,90 +30,40 @@
     </label>
 
     <label for="select-voice">Voice
-        <!--<div class="custom-select" style="width: 340px">-->
-        <select id="select-voice" name="select-voice" class="custom-select">
-            <!--<option value="0">Select a voice:</option>
-            <option value="0">Select a voice:</option>
-            <option value="0">Select a voice:</option>
-            <option value="0">Select a voice:</option>
-            <option value="0">Select a voice:</option>
-            <option value="0">Select a voice:</option>-->
-        </select>
-        <!--        </div>-->
+        <select id="select-voice" name="select-voice" class="custom-select"></select>
     </label>
 
     <div class="wrapper-buttons">
-        <!--<input id="submit-button" class="button" type="submit" value="speak">
-        <input id="clear-button" class="button" type="reset" value="clear">-->
         <button type="submit" id="submit-button" class="button">speak</button>
         <button type="reset" id="clear-button" class="button button-clear">clear</button>
-
     </div>
 
     <hr class="horizontal-line"/>
 
     <!-- controls-->
-    <div class="range">
-        <div class="slider-value">
-            <span id="slider-volume-value">50</span>
-        </div>
-        <div class="field">
-            <div class="value left">0</div>
-            <input id="slider-volume-input" type="range" min="0" max="99" value="50" steps="0">
-            <div class="value right">100</div>
-        </div>
-    </div>
-
-
-<!--    <div class="range">
-        <div class="slider-value">
-            <span id="slider-value-volume" class="slider-value-span">.5</span>
+    <div class="control-wrapper">
+        <div class="slider-wrapper">
+            <img src="./img/volume.png" class="slider-icon" alt="volume icon">
+            <input id="slider-volume" class="slider-input" type="range" min="0" step="0.1" max="1" value="0.9" />
+            <span id="slider-volume-value" class="slider-value">0.9</span>
         </div>
 
-        <div class="field">
-            <div class="value left">0</div>
-            <input id="control-volume" class="field-input-slider" type="range" min="10" max="90" value="50" steps="10">
-            <div class="value right">90</div>
+        <div class="slider-wrapper">
+            <img src="./img/pitch.png" class="slider-icon" alt="pitch icon">
+            <input id="slider-pitch" class="slider-input" type="range" min="0" step="0.1" max="2" value="0.5" />
+            <span id="slider-pitch-value" class="slider-value">0.5</span>
+        </div>
+
+        <div class="slider-wrapper">
+            <img src="./img/rate.png" class="slider-icon" alt="speed icon">
+            <input id="slider-rate" class="slider-input" type="range" min="0.1" step="0.1" max="10" value="0.8" />
+            <span id="slider-rate-value" class="slider-value">0.8</span>
         </div>
     </div>
-
-
-    <div class="range">
-        <div class="slider-value">
-            <span class="slider-value-span">5</span>
-        </div>
-
-        <div class="field">
-            <div class="value left">0</div>
-            <input id="control-pitch" class="field-input-slider" type="range" min="0" max="10" value="5" steps="1">
-            <div class="value right">10</div>
-        </div>
-    </div>
-
-    <div class="range">
-        <div class="slider-value">
-            <span class="slider-value-span">5</span>
-        </div>
-
-        <div class="field">
-            <div class="value left">0</div>
-            <input id="control-rate" class="field-input-slider" type="range" min="0" max="10" value="5" steps="1">
-            <div class="value right">10</div>
-        </div>
-    </div>-->
-
-
-
-
 </form>
-
 
 <!-- jQuery scripts-->
 <script src="./js/jquery-3.6.1.min.js"></script>
-<!-- fontawesome scripts-->
-<script src="js/all.min.js"></script>
-<!-- range-slider scripts-->
-<script src="./js/rangeslider.js"></script>
 <!-- sweatalert scripts-->
 <script src="./js/sweetalert.min.js"></script>
 <!-- main scripts-->
