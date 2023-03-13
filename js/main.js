@@ -20,13 +20,33 @@ $(window).on('load', function () {
     // get the elements
     let form = document.getElementById('form'),
       voice_list = document.getElementById('select-voice'),
-/*      vvol = document.getElementById('demo-vol'),
-      vpitch = document.getElementById('demo-pitch'),
-      vrate = document.getElementById('demo-rate'),*/
       voice_message = document.getElementById('message'),
       submit_button = document.getElementById('submit-button'),
       clear_button = document.getElementById('clear-button');
-      
+    
+    const slider_volume_value = document.querySelector('#slider-volume-value');
+    const input_volume_slider = document.querySelector('#slider-volume');
+    const slider_pitch_value = document.querySelector('#slider-pitch-value');
+    const input_pitch_slider = document.querySelector('#slider-pitch');
+    const slider_rate_value = document.querySelector('#slider-rate-value');
+    const input_rate_slider = document.querySelector('#slider-rate');
+  
+    //add event listeners
+    input_volume_slider.oninput = () => {
+      let value = input_volume_slider.value;
+      slider_volume_value.textContent = value;
+    
+    };
+  
+    input_pitch_slider.oninput = () => {
+      let value = input_pitch_slider.value;
+      slider_pitch_value.textContent = value;
+    }
+  
+    input_rate_slider.oninput = () => {
+      let value = input_rate_slider.value;
+      slider_rate_value.textContent = value;
+    }
 
     // populate available voices
     const voices = () => {
@@ -49,6 +69,10 @@ $(window).on('load', function () {
         swal('Invalid Entry', 'Message cannot be empty!', 'error');
       }
       message.text = voice_message.value;
+      message.volume = +input_volume_slider.value;
+      message.pitch = +input_pitch_slider.value;
+      message.rate = +input_rate_slider.value;
+      
       speechSynthesis.speak(message);
       voice_message.focus();
       return false;
@@ -57,9 +81,6 @@ $(window).on('load', function () {
     // enable form
     form.onsubmit = speak;
     voice_list.disabled = false;
-/*    vvol.disabled = false;
-    vpitch.disabled = false;
-    vrate.disabled = false;*/
     voice_message.disabled = false;
     submit_button.disabled = false;
     voice_message.focus();
@@ -81,6 +102,8 @@ $(window).on('load', function () {
     swal('Not Supported In Your Browser!','Text-to-speech is not supported.', 'error');
   }
 });
+
+
 
 
 
