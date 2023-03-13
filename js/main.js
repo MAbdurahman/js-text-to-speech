@@ -27,6 +27,9 @@ $(window).on('load', function () {
       submit_button = document.getElementById('submit-button'),
       clear_button = document.getElementById('clear-button');
       
+      /*const slide_value_volume = document.getElementById('slider-value-volume');
+      const input_slider_volume = document.getElementById('control-volume');*/
+      
 
     // populate available voices
     const voices = () => {
@@ -54,6 +57,13 @@ $(window).on('load', function () {
       return false;
     };
     
+/*    input_slider_volume.oninput = (()=> {
+      let value = input_slider_volume.value;
+      slide_value_volume.textContent = value;
+/!*      slide_value_volume.style.left = (value * 10.45 + 5.333 ) + '%';*!/
+      slide_value_volume.style.left = (value * .10) + '%';
+      slide_value_volume.classList.add('show');
+    });*/
     // enable form
     form.onsubmit = speak;
     voice_list.disabled = false;
@@ -86,7 +96,20 @@ $(window).on('load', function () {
 
 
 
+const slideValue = document.querySelector('#slider-volume-value');
+const inputSlider = document.querySelector('#slider-volume-input');
 
+
+inputSlider.oninput = () => {
+  let value = inputSlider.value;
+  slideValue.textContent = value;
+  slideValue.style.left = value + '%';
+  slideValue.classList.add('show');
+};
+
+inputSlider.onblur = () => {
+  slideValue.classList.remove('show');
+};
 
 
 
