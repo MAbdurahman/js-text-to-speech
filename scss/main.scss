@@ -70,6 +70,17 @@
 html {
   font-size: 100%;
 }
+@media only screen and (max-width: 420px){
+  html {
+    font-size: 83.333%;
+  }
+}
+@media only screen and (max-width: 320px){
+  html {
+    font-size: 66.667%;
+  }
+}
+
 
 body {
   width: 100%;
@@ -90,6 +101,12 @@ body {
   transition: filter 0.5s;
 }
 
+@media only screen and (max-width: 540px) {
+  body {
+    background: var(--clr-augmented-100);
+    overflow: hidden;
+  }
+}
 
 
 p {margin-bottom: 1rem;}
@@ -170,10 +187,13 @@ input::placeholder {
   max-width: 500px;
   padding: 20px;
   border-radius: var(--br-border-radius);
-  background: rgba(255, 255, 255, 0.4);
-  background: hsla(0, 0%, 94%, 70%);;
+  background: hsla(0, 0%, 94%, 70%);
 }
-
+@media only screen and (max-width: 540px) {
+  .wrapper {
+    background: var(--clr-augmented-100);
+  }
+}
 /*=============================================
           wrapper-buttons
 ================================================*/
