@@ -1,4 +1,3 @@
-
 /* ============================================
             preloader
 ===============================================*/
@@ -7,47 +6,26 @@ $(window).on('load', function () {
   $('#preloader-gif, #preloader').fadeOut(3000, function () {});
 });
 
-
-
-
 /* ============================================
             js-text-to-speak
 ===============================================*/
 $(window).on('load', function () {
   
-  // text-to-speech is supported
-  if ('speechSynthesis' in window) {
+  if ('speechSynthesis' in window) { // text-to-speech is supported
     // get the elements
-    let form = document.getElementById('form'),
+    const form = document.getElementById('form'),
       voice_list = document.getElementById('select-voice'),
       voice_message = document.getElementById('message'),
       submit_button = document.getElementById('submit-button'),
-      clear_button = document.getElementById('clear-button');
+      clear_button = document.getElementById('clear-button'),
+      
+      slider_volume_value = document.querySelector('#slider-volume-value'),
+      input_volume_slider = document.querySelector('#slider-volume'),
+      slider_pitch_value = document.querySelector('#slider-pitch-value'),
+      input_pitch_slider = document.querySelector('#slider-pitch'),
+      slider_rate_value = document.querySelector('#slider-rate-value'),
+      input_rate_slider = document.querySelector('#slider-rate');
     
-    const slider_volume_value = document.querySelector('#slider-volume-value');
-    const input_volume_slider = document.querySelector('#slider-volume');
-    const slider_pitch_value = document.querySelector('#slider-pitch-value');
-    const input_pitch_slider = document.querySelector('#slider-pitch');
-    const slider_rate_value = document.querySelector('#slider-rate-value');
-    const input_rate_slider = document.querySelector('#slider-rate');
-  
-    //add event listeners
-    input_volume_slider.oninput = () => {
-      let value = input_volume_slider.value;
-      slider_volume_value.textContent = value;
-    
-    };
-  
-    input_pitch_slider.oninput = () => {
-      let value = input_pitch_slider.value;
-      slider_pitch_value.textContent = value;
-    }
-  
-    input_rate_slider.oninput = () => {
-      let value = input_rate_slider.value;
-      slider_rate_value.textContent = value;
-    }
-
     // populate available voices
     const voices = () => {
       speechSynthesis.getVoices().forEach((voice, i) => {
@@ -85,21 +63,36 @@ $(window).on('load', function () {
     submit_button.disabled = false;
     voice_message.focus();
     
-    clear_button.addEventListener('click', function(e) {
+    // add event listener to clear button
+    clear_button.addEventListener('click', function (e) {
       
       if (voice_message.value === '') {
         swal('Invalid Entry', 'Message is already empty!', 'error');
       }
       voice_message.innerHTML = '';
       voice_message.focus();
-
+      
     });
-
-  }
-  // text-to-speech is not available in broswer
-  else {
-    /*alert('Text-to-speech is not supported on your browser!');*/
-    swal('Not Supported In Your Browser!','Text-to-speech is not supported.', 'error');
+  
+    //add event listeners to controls
+    input_volume_slider.oninput = () => {
+      let value = input_volume_slider.value;
+      slider_volume_value.textContent = value;
+    };
+  
+    input_pitch_slider.oninput = () => {
+      let value = input_pitch_slider.value;
+      slider_pitch_value.textContent = value;
+    };
+  
+    input_rate_slider.oninput = () => {
+      let value = input_rate_slider.value;
+      slider_rate_value.textContent = value;
+    };
+    
+  } else {// text-to-speech is not available in broswer
+    swal('Not Supported In Your Browser!', 'Text-to-speech is not supported.', 'error');
+    
   }
 });
 
