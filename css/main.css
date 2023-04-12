@@ -224,6 +224,7 @@ input, label, select {
   width: 100%;
   font-size: 1.25rem;
   padding: 0.5em;
+  border-radius: var(--br-border-radius);
 }
 
 label {
@@ -235,6 +236,7 @@ label {
 input, select {
   color: var(--clr-augmented-400);
   font-weight: var(--fw-font-weight-500);
+  border-radius: var(--br-border-radius);
 }
 
 /* =============================================
@@ -332,6 +334,7 @@ label .custom-select {
   position: relative;
   font-family: "Roboto Mono", monospace;
   font-family: var(--ff-font-body);
+  border-radius: var(--br-border-radius);
 }
 
 label .custom-select select {
@@ -352,6 +355,7 @@ label .select-selected:after {
   height: 0;
   border: 6px solid transparent;
   border-color: #fff transparent transparent transparent;
+  border-radius: var(--br-border-radius);
 }
 
 /*point the arrow upwards when the select box is open (active):*/
