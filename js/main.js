@@ -34,6 +34,7 @@ $(window).on('load', function () {
     const voices = () => {
       speechSynthesis.getVoices().forEach((voice, i) => {
         let option = document.createElement('option');
+        option.classList.add('option');
         option.value = i;
         option.innerHTML = voice.name;
         voice_list.appendChild(option);
