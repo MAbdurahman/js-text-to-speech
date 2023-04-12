@@ -11,8 +11,12 @@ $(window).on('load', function () {
 ===============================================*/
 $(window).on('load', function () {
   
-  if ('speechSynthesis' in window) { // text-to-speech is supported
-    // get the elements
+  if ('speechSynthesis' in window) {
+    /*=============================================
+          text-to-speech is supported in the browser,
+          assign variables
+    ================================================*/
+    
     const form = document.getElementById('form'),
       voice_list = document.getElementById('select-voice'),
       voice_message = document.getElementById('message'),
@@ -26,7 +30,7 @@ $(window).on('load', function () {
       slider_rate_value = document.querySelector('#slider-rate-value'),
       input_rate_slider = document.querySelector('#slider-rate');
     
-    // populate available voices
+    //**************** populate available voices ****************//
     const voices = () => {
       speechSynthesis.getVoices().forEach((voice, i) => {
         let option = document.createElement('option');
@@ -38,74 +42,57 @@ $(window).on('load', function () {
     voices();
     speechSynthesis.onvoiceschanged = voices;
     
-    // speak
-    const speak = () => {
-      let message = new SpeechSynthesisUtterance();
-      message.voice = speechSynthesis.getVoices()[voice_list.value];
-      
+    /*=============================================
+          add event listeners
+    ================================================*/
+    submit_button.addEventListener('click', function(e) {
+      let speech_utter = new SpeechSynthesisUtterance();
+      speech_utter.voice = speechSynthesis.getVoices()[voice_list.value];
+  
       if (voice_message.value === '') {
         swal('Invalid Entry', 'Message cannot be empty!', 'error');
+        return;
       }
-      message.text = voice_message.value;
-      message.volume = +input_volume_slider.value;
-      message.pitch = +input_pitch_slider.value;
-      message.rate = +input_rate_slider.value;
-      
-      speechSynthesis.speak(message);
+      speech_utter.text = voice_message.value;
+      speech_utter.volume = +input_volume_slider.value;
+      speech_utter.pitch = +input_pitch_slider.value;
+      speech_utter.rate = +input_rate_slider.value;
+  
+      speechSynthesis.speak(speech_utter);
       voice_message.focus();
-      return false;
-    };
-    
-    // enable form
-    form.onsubmit = speak;
-    voice_list.disabled = false;
-    voice_message.disabled = false;
-    submit_button.disabled = false;
-    voice_message.focus();
-    
-    // add event listener to clear button
-    clear_button.addEventListener('click', function (e) {
       
+    });
+    
+    clear_button.addEventListener('click', function (e) {
       if (voice_message.value === '') {
         swal('Invalid Entry', 'Message is already empty!', 'error');
+        return;
       }
       voice_message.innerHTML = '';
       voice_message.focus();
       
     });
-  
-    //add event listeners to controls
-    input_volume_slider.oninput = () => {
+    
+    input_volume_slider.addEventListener('input', function() {
       let value = input_volume_slider.value;
       slider_volume_value.textContent = value;
-    };
-  
-    input_pitch_slider.oninput = () => {
+    })
+    
+    input_pitch_slider.addEventListener('input', function(){
       let value = input_pitch_slider.value;
       slider_pitch_value.textContent = value;
-    };
-  
-    input_rate_slider.oninput = () => {
+      
+    });
+    
+    input_rate_slider.addEventListener('input', function() {
       let value = input_rate_slider.value;
       slider_rate_value.textContent = value;
-    };
+      
+    });
     
-  } else {// text-to-speech is not available in broswer
-    swal('Not Supported In Your Browser!', 'Text-to-speech is not supported.', 'error');
-    
+  } else {
+    //**************** text-to-speech is not availabe in browser ****************//
+    swal('Not Supported In Your Browser!', 'Text-to-speech is not supported.', 'info');
+    return;
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
