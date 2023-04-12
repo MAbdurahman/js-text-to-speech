@@ -183,6 +183,9 @@ input::placeholder {
 /*=============================================
           wrapper
 ================================================*/
+.option {
+  border-radius: var(--br-border-radius);
+}
 .wrapper {
   max-width: 500px;
   padding: 20px;
